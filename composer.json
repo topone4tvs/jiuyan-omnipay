@@ -3,7 +3,7 @@
   "type": "library",
   "description": "jiuyan common payment gateway",
   "keywords": ["jiuyan", "gateway", "omnipay", "pay", "payment", "purchase"],
-  "homepage": "packagist.in66.cc:8080",
+  "homepage": "https://github.com/topone4tvs/jiuyan-omnipay",
   "license": "MIT",
   "authors": [
     {
