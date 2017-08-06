@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Omnipay\\Apple\\": "src/Appleiap"
+      "Omnipay\\Apple\\": "src/Apple"
     }
   },
   "require": {

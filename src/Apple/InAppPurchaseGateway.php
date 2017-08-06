@@ -2,7 +2,6 @@
 
 namespace Omnipay\Apple;
 
-use Omnipay\Alipay\Requests\LegacyAppPurchaseRequest;
 use Omnipay\Apple\Requests\IapPurchaseRequest;
 use Omnipay\Apple\Requests\InAppPurchaseRequest;
 use Omnipay\Common\AbstractGateway;
