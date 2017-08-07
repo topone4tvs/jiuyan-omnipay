@@ -40,7 +40,7 @@ class InAppPurchaseGateway extends AbstractGateway
      */
     public function completePurchase(array $parameters = [])
     {
-        return $this->createRequest(LegacyCompletePurchaseRequest::class, $parameters);
+        return $this->createRequest(IapQueryRequest::class, $parameters);
     }
 
 
@@ -61,6 +61,6 @@ class InAppPurchaseGateway extends AbstractGateway
      */
     public function query(array $parameters = [])
     {
-        return $this->createRequest(LegacyQueryRequest::class, $parameters);
+        return $this->createRequest(IapQueryRequest::class, $parameters);
     }
 }
