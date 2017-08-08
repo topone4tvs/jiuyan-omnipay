@@ -3,7 +3,7 @@
 namespace Omnipay\Apple;
 
 use Omnipay\Apple\Requests\IapPurchaseRequest;
-use Omnipay\Apple\Requests\InAppPurchaseRequest;
+use Omnipay\Apple\Requests\IapQueryRequest;
 use Omnipay\Common\AbstractGateway;
 
 /**
@@ -35,8 +35,7 @@ class InAppPurchaseGateway extends AbstractGateway
 
     /**
      * @param array $parameters
-     *
-     * @return LegacyCompletePurchaseRequest
+     * @return \Omnipay\Common\Message\AbstractRequest
      */
     public function completePurchase(array $parameters = [])
     {
@@ -54,10 +53,9 @@ class InAppPurchaseGateway extends AbstractGateway
         return $this->createRequest(IapPurchaseRequest::class, $parameters);
     }
 
-        /**
+    /**
      * @param array $parameters
-     *
-     * @return LegacyQueryRequest
+     * @return \Omnipay\Common\Message\AbstractRequest
      */
     public function query(array $parameters = [])
     {

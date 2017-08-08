@@ -2,15 +2,14 @@
 
 namespace Omnipay\Apple\Requests;
 
-use Omnipay\Apple\Responses\IapPurchaseResponse;
-use Omnipay\Common\Message\AbstractRequest;
+use Omnipay\Apple\Responses\IapQueryResponse;
 
 /**
  * Class IapPurchaseRequest
  * @package Omnipay\Alipay\Requests
  * @link    https://doc.open.alipay.com/docs/doc.htm?treeId=59&articleId=103663&docType=1
  */
-class IapQueryRequest extends AbstractRequest
+class IapQueryRequest extends AppleBaseRequest
 {
     protected $_endpoint = 'https://buy.itunes.apple.com/verifyReceipt';
     protected $_testEndpoint = 'https://sandbox.itunes.apple.com/verifyReceipt';
@@ -25,7 +24,7 @@ class IapQueryRequest extends AbstractRequest
     public function getData()
     {
         return [
-            'receipt' => $this->getReceipt()
+            'receipt-data' => $this->getReceipt()
         ];
     }
 
@@ -62,10 +61,11 @@ class IapQueryRequest extends AbstractRequest
         if ($this->getEnvironment() == 'test') {
             $endPoint = $this->_testEndpoint;
         }
-        $request = $this->httpClient->post($endPoint)->setBody($data);
-        $response = $request->send()->getBody();
+        //$endPoint = 'http://qainlove.in66.com/api/script/talent/ranking/score/recording?action_category=photo&action_user_id=100779025&item_owner_id=10025&ext_params={"photo_id":["989006186"],"currentUserId":103417211}';
+        //$request = $this->httpClient->post($endPoint)->setPostField('receipt-data', $data['receipt-data']);
+        list($response, $error) = $this->post($endPoint, json_encode($data));
         $responseBody = json_decode($response, true);
 
-        return $this->response = new IapPurchaseResponse($this, $responseBody);
+        return $this->response = new IapQueryResponse($this, $responseBody);
     }
 }

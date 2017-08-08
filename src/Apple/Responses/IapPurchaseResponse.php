@@ -14,6 +14,9 @@ class IapPurchaseResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
+        if ($this->data['receipt'] && $this->data['status'] == 0) {
+            return true;
+        }
         return true;
     }
 }
