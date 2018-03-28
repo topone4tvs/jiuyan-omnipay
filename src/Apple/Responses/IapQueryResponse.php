@@ -8,8 +8,7 @@ class IapQueryResponse extends AbstractResponse
 {
     public function getData()
     {
-        $finalData = isset($this->data['receipt']['in_app']) ? $this->data['receipt']['in_app'][0] : [];
-        return $finalData;
+        return $this->data['receipt'] ? $this->data['receipt'] : [];
     }
 
     /**
@@ -19,9 +18,10 @@ class IapQueryResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        if ($this->data['receipt'] && $this->data['status'] == 0) {
-            return true;
+        if (isset($this->data['status']) && $this->data['status'] != 0) {
+            \Log::error('iap receipt verify failed status:' . $this->data['status']);
+            return false;
         }
-        return false;
+        return true;
     }
 }

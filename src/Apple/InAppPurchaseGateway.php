@@ -33,6 +33,16 @@ class InAppPurchaseGateway extends AbstractGateway
         return $data;
     }
 
+    public function setEnvironment($environment)
+    {
+        return $this->setParameter('environment', $environment);
+    }
+
+    public function getEnvironment()
+    {
+        return strtoupper($this->getParameter('environment'));
+    }
+
     /**
      * @param array $parameters
      * @return \Omnipay\Common\Message\AbstractRequest
