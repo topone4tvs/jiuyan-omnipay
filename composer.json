@@ -13,8 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Omnipay\\Apple\\": "src/Apple",
-      "Omnipay\\Jyalipay\\": "src/Alipay"
+      "Omnipay\\Apple\\": "src/Apple"
     }
   },
   "require": {
